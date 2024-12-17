@@ -1,2 +1,2 @@
 # dwm
-my dwm config based on catppuccin color scheme!
+my dwm build inspired from bugswriter
