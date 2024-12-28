@@ -1,0 +1,22 @@
+--- config.def.h	2019-12-10 17:44:38.447670711 +1300
++++ config.def.h	2019-12-10 17:24:37.944708263 +1300
+@@ -5,8 +5,6 @@ static const unsigned int borderpx  = 1;
+ static const unsigned int snap      = 32;       /* snap pixel */
+ static const int showbar            = 1;        /* 0 means no bar */
+ static const int topbar             = 1;        /* 0 means bottom bar */
+-static const int vertpad            = 10;       /* vertical padding of bar */
+-static const int sidepad            = 10;       /* horizontal padding of bar */
+ static const char *fonts[]          = { "monospace:size=10" };
+ static const char dmenufont[]       = "monospace:size=10";
+ static const char col_gray1[]       = "#222222";
+--- dwm.c	2019-12-10 17:41:46.192676099 +1300
++++ dwm.c	2019-12-10 17:24:37.945708263 +1300
+@@ -705,7 +703,7 @@ drawbar(Monitor *m)
+ 	if (m == selmon) { /* status is only drawn on selected monitor */
+ 		drw_setscheme(drw, scheme[SchemeNorm]);
+ 		sw = TEXTW(stext) - lrpad + 2; /* 2px right padding */
+-		drw_text(drw, m->ww - sw - 2 * sp, 0, sw, bh, 0, stext, 0);
++		drw_text(drw, m->ww - sw, 0, sw, bh, 0, stext, 0);
+ 	}
+ 
+ 	for (c = m->clients; c; c = c->next) {
